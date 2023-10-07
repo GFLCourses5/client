@@ -1,4 +1,4 @@
-package com.geeksforless.client.configuation;
+package com.geeksforless.client.configuation.interceptors;
 
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
