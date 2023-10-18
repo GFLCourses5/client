@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
   <meta charset="UTF-8">
   <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}">
@@ -9,7 +10,6 @@
 
 <div class="d-flex justify-content-center align-items-center vh-100">
   <div class="col-md-4">
-
       <h1 class="text-center">User Login Page</h1>
       <form th:action="@{/login}" method="post" class="mt-4">
 
