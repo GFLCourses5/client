@@ -41,7 +41,7 @@ public class UserController {
     @PostMapping("/registration")
     public String createUser(@ModelAttribute("user") SaveUserRequest request, Model model) {
         if (userService.createUser(request) == null) {
-            model.addAttribute("errorMessage", "Пользователь с email: " + request.getEmail() + " уже существует");
+            model.addAttribute("errorMessage", "User with email: " + request.getEmail() + " already exists");
             return "registration";
         }
         return "redirect:/login";
