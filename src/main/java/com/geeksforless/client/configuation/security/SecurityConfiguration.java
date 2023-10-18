@@ -19,8 +19,8 @@ public class SecurityConfiguration  {
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers(AntPathRequestMatcher.antMatcher("/registration")).permitAll()
                         .requestMatchers(AntPathRequestMatcher.antMatcher( "/webjars/**")).permitAll()
-                        .requestMatchers(AntPathRequestMatcher.antMatcher( "/p")).permitAll()
-                        .requestMatchers(AntPathRequestMatcher.antMatcher("/")).authenticated()
+                        .requestMatchers(AntPathRequestMatcher.antMatcher( "/")).permitAll()
+                        .anyRequest().authenticated()
                 )
                 .formLogin(login -> login
                         .loginPage("/login")
