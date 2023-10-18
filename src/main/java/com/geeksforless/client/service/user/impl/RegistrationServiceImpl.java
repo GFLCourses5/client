@@ -1,5 +1,6 @@
 package com.geeksforless.client.service.user.impl;
 
+import com.geeksforless.client.exception.UserNotFoundException;
 import com.geeksforless.client.mapper.UserMapper;
 import com.geeksforless.client.model.dto.UserDto;
 import com.geeksforless.client.model.entity.User;
@@ -21,7 +22,7 @@ public class RegistrationServiceImpl implements RegistrationService {
     public UserDto createUser(SaveUserRequest request) {
         String email = request.getEmail();
         if (userRepository.findByEmail(email).isPresent()) {
-            return null;
+            throw new UserNotFoundException("User with email " + email + " already exists.");
         }
         User user = new User();
         user.setEmail(email);
