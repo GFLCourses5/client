@@ -34,6 +34,7 @@
   <h1 class="text-center" >Scenario Form</h1>
   <div sec:authorize="isAuthenticated()">
     Text visible only to authenticated users.
+    Authenticated as <span sec:authentication="name"></span>
   </div>
 
   <form th:action="@{/p}" method="post">
