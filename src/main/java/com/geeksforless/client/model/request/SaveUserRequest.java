@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 public class SaveUserRequest {
-    @NotBlank(message = "Firstname must not be empty.")
+    @NotBlank(message = "Name must not be empty.")
     private String name;
     @NotBlank(message = "Password must not be empty.")
     private String password;
