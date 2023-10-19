@@ -7,9 +7,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 public class PasswordEncoderConfiguration {
+
+    private static final int STRENGTH = 8;
+
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder(8);
+        return new BCryptPasswordEncoder(STRENGTH);
     }
 
 }
