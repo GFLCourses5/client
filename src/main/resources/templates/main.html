@@ -31,14 +31,14 @@
 <div class="form-container">
     <h1 class="text-center">Scenario Form</h1>
 
-    <form th:action="@{/main}" method="post">
+    <form th:object="${scenarioFormDTO}" th:action="@{/main}" method="post">
         <div class="form-group">
                     <label for="instructions">Scenario:</label>
-                    <textarea class="form-control" id="instructions" name="scenariosList" rows="6" required></textarea>
+                    <textarea th:field="*{scenariosList}" class="form-control" id="instructions" name="scenariosList" rows="6" required></textarea>
                 </div>
 
         <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="checkbox" name="proxyRequired"/>
+            <input th:field="*{proxyRequired}" type="checkbox" class="form-check-input" id="checkbox" name="proxyRequired"/>
             <label class="form-check-label" for="checkbox">Use Proxy</label>
         </div>
 

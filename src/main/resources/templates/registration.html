@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}">
+  <title>Registration</title>
+</head>
+<body>
+
+<div class="d-flex justify-content-center align-items-center vh-100">
+  <div class="col-md-4">
+    <h1 class="text-center">User Registration Page</h1>
+    <form th:action="@{/registration}" th:object="${user}" method="post">
+
+      <div th:if="${errorMessage}" class="alert alert-danger">
+        <span th:text="${errorMessage}"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" name="email"
+               placeholder="Enter Email" autofocus="autofocus" th:field="*{email}"  pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" class="form-control"
+               placeholder="Enter Password" th:field="*{password}"/>
+      </div>
+
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="name" id="name" name="name" class="form-control"
+               placeholder="Enter Name" th:field="*{name}"/>
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col-sm-6 offset-sm-3">
+            <input type="submit" name="login-submit" id="login-submit" class="form-control btn btn-primary" value="Register" style="margin-top: 40px"/>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <div class="form-group text-center mt-3">
+      <span>Already registered? <a th:href="@{/login}">Log in here</a></span>
+    </div>
+  </div>
+</div>
+
+<script th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
