@@ -2,9 +2,11 @@ package com.geeksforless.client.service.scenario.impl;
 
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.geeksforless.client.client.WorkerClient;
 import com.geeksforless.client.model.dto.scenario.*;
 import com.geeksforless.client.model.entity.CustomUserDetails;
 import com.geeksforless.client.service.scenario.ScenarioService;
+import lombok.AllArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
@@ -14,30 +16,38 @@ import java.util.Collections;
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class ScenarioServiceImpl implements ScenarioService {
 
+    private final WorkerClient client;
+
     @Override
-    public void sendScenario(ScenarioFormDTO request) {
-        List<Scenario> scenarios = toScenarioList(request.getScenariosList());
-        ScenarioRequestDTO scenarioRequestDTO = ScenarioRequestDTO
+    public void sendScenario(ScenarioFormDTO formData) {
+        ScenarioRequestDTO request = prepareRequest(formData);
+        client.postScenarios(request);
+    }
+
+    private ScenarioRequestDTO prepareRequest(ScenarioFormDTO formData) {
+        List<Scenario> scenarios = toScenarioList(formData.getScenariosList());
+        ScenarioRequestDTO request = ScenarioRequestDTO
                 .builder()
                 .scenarioList(scenarios)
                 .userId(getCurrentUserId())
-                .proxyRequired(request.getProxyRequired())
+                .proxyRequired(formData.getProxyRequired())
                 .build();
-        //TODO:Not implemented yet
+        return request;
     }
 
     @Override
     public List<ScenarioResultDTO> getScenarioResults(Long userId) {
-        //TODO:Not implemented yet
-        return null;
+        List<ScenarioResultDTO> scenarios = client.getScenariosByUserId(userId);
+        return scenarios;
     }
 
     @Override
     public ScenarioResultDTO getScenarioById(Integer id) {
-        //TODO:Not implemented yet
-        return null;
+        ScenarioResultDTO scenario = client.getScenarioById(id);
+        return scenario;
     }
 
     private List<Scenario> toScenarioList(String scenarioJSON) {
