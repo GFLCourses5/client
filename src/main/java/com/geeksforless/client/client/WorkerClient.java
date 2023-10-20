@@ -17,6 +17,9 @@ public interface WorkerClient {
     @Headers("Content-Type: application/json")
     void postScenarios(@Valid ScenarioRequestDTO request);
 
-    @GetMapping("/scenarios/{userId}")
-    List<ScenarioResultDTO> getScenarioResults(@PathVariable("userId") Long userId);
+    @GetMapping("/scenarios/user/{userId}")
+    List<ScenarioResultDTO> getScenariosByUserId(@PathVariable("userId") Long userId);
+
+    @GetMapping("/scenarios/{id}")
+    ScenarioResultDTO getScenarioById(@PathVariable("id") Integer id);
 }
