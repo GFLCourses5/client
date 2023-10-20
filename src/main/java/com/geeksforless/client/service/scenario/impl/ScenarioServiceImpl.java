@@ -40,14 +40,14 @@ public class ScenarioServiceImpl implements ScenarioService {
 
     @Override
     public List<ScenarioResultDTO> getScenarioResults(Long userId) {
-        //TODO:Not implemented yet
-        return null;
+        List<ScenarioResultDTO> scenarios = client.getScenariosByUserId(userId);
+        return scenarios;
     }
 
     @Override
     public ScenarioResultDTO getScenarioById(Integer id) {
-        //TODO:Not implemented yet
-        return null;
+        ScenarioResultDTO scenario = client.getScenarioById(id);
+        return scenario;
     }
 
     private List<Scenario> toScenarioList(String scenarioJSON) {
