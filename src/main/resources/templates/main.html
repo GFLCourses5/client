@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"  xmlns:th="http://www.thymeleaf.org"
+                                                 xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
 <head>
     <meta charset="UTF-8"/>
@@ -42,8 +43,9 @@
             <label class="form-check-label" for="checkbox">Use Proxy</label>
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+        <button type="submit" class="btn btn-primary" th:attr="disabled=${!#authorization.expression('isAuthenticated()')}">Submit</button>
+        <a th:href="@{/login}" sec:authorize="!isAuthenticated()">Log in here</a>
+        <a th:href="@{/logout}" sec:authorize="isAuthenticated()">Log Out</a>    </form>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class MainController {
     private final ScenarioService scenarioService;
 
-    @GetMapping("/main")
+    @GetMapping("/")
     public String mainForm() {
         return "main";
     }
