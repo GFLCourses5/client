@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Step Results</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+  <h1>Step Results</h1>
+  <table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+    <tr>
+      <th>№</th>
+      <th>Step</th>
+      <th>Passed</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="stepResult, iterStat : ${stepsResults}">
+      <td th:text="${iterStat.count}"></td>
+      <td th:text="${stepResult.step.getAction()}"></td>
+      <td th:style="${stepResult.isPassed ? 'background-color: green; color: white;' : 'background-color: red; color: white;'}">
+        <span th:text="${stepResult.isPassed ? 'Passed' : 'Not Passed'}"></span>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
