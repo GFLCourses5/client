@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
@@ -11,17 +11,23 @@
     <table class="table table-bordered">
         <thead class="thead-dark">
         <tr>
-            <th>Id</th>
+            <th>№</th>
             <th>Name</th>
             <th>Site</th>
+            <th>Date</th>
         </tr>
         </thead>
         <tbody>
         <tr>
-            <td th:text="${scenarioResult.id}"></td>
-            <td th:text="${scenarioResult.name}"></td>
+        <tr th:each="scenarioResult, iterStat : ${scenarioResults}">
+            <td th:text="${iterStat.count}"></td>
+            <td>
+                <a th:href="@{'/scenarios/' + ${scenarioResult.id}}">
+                    <span th:text="${scenarioResult.name}"></span>
+                </a>
+            </td>
             <td th:text="${scenarioResult.site}"></td>
-        </tr>
+            <td th:text="${scenarioResult.executedAt.dayOfMonth} + '/' + ${scenarioResult.executedAt.monthValue} + '/' + ${scenarioResult.executedAt.year} + ' ' + ${scenarioResult.executedAt.hour} + ':' + ${scenarioResult.executedAt.minute}+ ':' + ${scenarioResult.executedAt.second}"></td></tr>
         </tbody>
     </table>
 </div>
