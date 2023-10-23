@@ -1,0 +1,29 @@
+{
+  "id": 1,
+  "name": "test scenario 1",
+  "site": "https://info.cern.ch",
+  "stepsResults": [
+    {
+      "step": {
+        "action": "clickCss",
+        "value": "body > ul > li:nth-child(1) > a"
+      },
+      "isPassed": true
+    },
+    {
+      "step": {
+        "action": "sleep",
+        "value": "5"
+      },
+      "isPassed": true
+    },
+    {
+      "step": {
+        "action": "clickXpath",
+        "value": "/html/body/p"
+      },
+      "isPassed": true
+    }
+  ],
+  "executedAt": "2023-10-19T13:04:07.796234Z"
+}
