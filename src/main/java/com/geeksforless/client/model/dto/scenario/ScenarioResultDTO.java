@@ -1,11 +1,13 @@
 package com.geeksforless.client.model.dto.scenario;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.time.OffsetDateTime;
 import java.util.List;
 
 @Data
+@AllArgsConstructor
 public class ScenarioResultDTO {
     private Integer id;
     private String name;
