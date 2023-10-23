@@ -22,32 +22,20 @@ public class ScenarioServiceImpl implements ScenarioService {
     private final WorkerClient client;
 
     @Override
-    public void sendScenario(ScenarioFormDTO formData) {
-        ScenarioRequestDTO request = prepareRequest(formData);
+    public void sendScenario(ScenarioFormDTO formData, Authentication authentication) {
+        ScenarioRequestDTO request = prepareRequest(formData, authentication);
         client.postScenarios(request);
     }
 
-    private ScenarioRequestDTO prepareRequest(ScenarioFormDTO formData) {
+    private ScenarioRequestDTO prepareRequest(ScenarioFormDTO formData, Authentication authentication) {
         List<Scenario> scenarios = toScenarioList(formData.getScenariosList());
         ScenarioRequestDTO request = ScenarioRequestDTO
                 .builder()
                 .scenarioList(scenarios)
-                .userId(getCurrentUserId())
+                .userId(getCurrentUserId(authentication))
                 .proxyRequired(formData.getProxyRequired())
                 .build();
         return request;
-    }
-
-    @Override
-    public List<ScenarioResultDTO> getScenarioResults(Long userId) {
-        List<ScenarioResultDTO> scenarios = client.getScenariosByUserId(userId);
-        return scenarios;
-    }
-
-    @Override
-    public ScenarioResultDTO getScenarioById(Integer id) {
-        ScenarioResultDTO scenario = client.getScenarioById(id);
-        return scenario;
     }
 
     private List<Scenario> toScenarioList(String scenarioJSON) {
@@ -60,15 +48,27 @@ public class ScenarioServiceImpl implements ScenarioService {
         }
     }
 
+    private Long getCurrentUserId(Authentication authentication) {
+        CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
+        return userDetails.getId();
+    }
+
     private List<Scenario> parseJson(String scenarioJSON) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         JavaType type = objectMapper.getTypeFactory().constructCollectionType(List.class, Scenario.class);
         return objectMapper.readValue(scenarioJSON, type);
     }
 
-    private Long getCurrentUserId() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
-        return userDetails.getId();
+    @Override
+    public List<ScenarioResultDTO> getScenarioResults(Authentication authentication) {
+        long userId = getCurrentUserId(authentication);
+        List<ScenarioResultDTO> scenarios = client.getScenariosByUserId(userId);
+        return scenarios;
+    }
+
+    @Override
+    public ScenarioResultDTO getScenarioById(Integer id) {
+        ScenarioResultDTO scenario = client.getScenarioById(id);
+        return scenario;
     }
 }
