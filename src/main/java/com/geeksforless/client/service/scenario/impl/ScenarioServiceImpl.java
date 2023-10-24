@@ -31,7 +31,7 @@ public class ScenarioServiceImpl implements ScenarioService {
         List<Scenario> scenarios = toScenarioList(formData.getScenariosList());
         ScenarioRequestDTO request = ScenarioRequestDTO
                 .builder()
-                .scenarioList(scenarios)
+                .scenarios(scenarios)
                 .userId(getCurrentUserId(authentication))
                 .proxyRequired(formData.getProxyRequired())
                 .build();

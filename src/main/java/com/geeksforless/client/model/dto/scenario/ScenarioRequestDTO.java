@@ -13,6 +13,6 @@ public class ScenarioRequestDTO {
     @NotNull
     private Long userId;
     @NotEmpty
-    private List<Scenario> scenarioList;
+    private List<Scenario> scenarios;
     private boolean proxyRequired;
 }
