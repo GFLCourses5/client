@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
-@FeignClient(name = "worker-api", url = "http://localhost:8080/api/v1")
+@FeignClient(name = "worker-api", url = "${worker.service.url}")
 public interface WorkerClient {
     @PostMapping("/scenarios")
     @Headers("Content-Type: application/json")

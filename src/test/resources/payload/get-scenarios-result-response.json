@@ -1,0 +1,715 @@
+[
+  {
+    "id": 9,
+    "name": "test scenario 1",
+    "site": "https://info.cern.ch",
+    "stepsResults": [
+      {
+        "step": {
+          "action": "clickCss",
+          "value": "body > ul > li:nth-child(1) > a"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "sleep",
+          "value": "5"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "clickXpath",
+          "value": "/html/body/p"
+        },
+        "isPassed": true
+      }
+    ],
+    "executedAt": "2023-10-19T13:04:07.796234Z"
+  },
+  {
+    "id": 10,
+    "name": "Amazon Shopping",
+    "site": "https://www.amazon.com",
+    "stepsResults": [
+      {
+        "step": {
+          "action": "clickXpath",
+          "value": "//a[@id='nav-hamburger-menu']"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "sleep",
+          "value": "2"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "clickCss",
+          "value": ".nav-logo-base"
+        },
+        "isPassed": false
+      }
+    ],
+    "executedAt": "2023-10-19T13:04:13.16464Z"
+  },
+  {
+    "id": 11,
+    "name": "Google Search",
+    "site": "https://www.google.com",
+    "stepsResults": [
+      {
+        "step": {
+          "action": "clickCss",
+          "value": "#hplogo"
+        },
+        "isPassed": false
+      },
+      {
+        "step": {
+          "action": "sleep",
+          "value": "3"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "clickXpath",
+          "value": "//input[@name='q']"
+        },
+        "isPassed": false
+      }
+    ],
+    "executedAt": "2023-10-19T13:04:16.856198Z"
+  },
+  {
+    "id": 12,
+    "name": "Wikipedia Search",
+    "site": "https://www.wikipedia.org",
+    "stepsResults": [
+      {
+        "step": {
+          "action": "clickCss",
+          "value": "#js-link-box-en > strong"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "sleep",
+          "value": "4"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "clickXpath",
+          "value": "//div[2]/span/a"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "sleep",
+          "value": "4"
+        },
+        "isPassed": true
+      }
+    ],
+    "executedAt": "2023-10-19T13:04:24.042458Z"
+  },
+  {
+    "id": 13,
+    "name": "IP check",
+    "site": "https://myip.com.ua/",
+    "stepsResults": [
+      {
+        "step": {
+          "action": "sleep",
+          "value": "10"
+        },
+        "isPassed": true
+      }
+    ],
+    "executedAt": "2023-10-19T13:04:29.280483Z"
+  },
+  {
+    "id": 14,
+    "name": "Baeldung",
+    "site": "https://www.baeldung.com",
+    "stepsResults": [
+      {
+        "step": {
+          "action": "clickCss",
+          "value": ".menu-start-here > .nav--menu_item_anchor"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "sleep",
+          "value": "4"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "clickXpath",
+          "value": "(//a[@id='button-text-color']/span/span)[2]"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "sleep",
+          "value": "4"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "clickCss",
+          "value": ".elementor-icon-list-items:nth-child(2) > .elementor-icon-list-item:nth-child(1) a"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "sleep",
+          "value": "4"
+        },
+        "isPassed": true
+      }
+    ],
+    "executedAt": "2023-10-19T13:04:40.680354Z"
+  },
+  {
+    "id": 15,
+    "name": "W3",
+    "site": "https://www.w3schools.com",
+    "stepsResults": [
+      {
+        "step": {
+          "action": "clickXpath",
+          "value": "//div[@id='subtopnav']/a[6]"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "sleep",
+          "value": "4"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "clickXpath",
+          "value": "//div[@id='leftmenuinnerinner']/a[2]"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "sleep",
+          "value": "4"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "clickCss",
+          "value": ".w3-right:nth-child(3)"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "sleep",
+          "value": "4"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "clickXpath",
+          "value": "//div[@id='main']/div[2]/a[2]"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "sleep",
+          "value": "4"
+        },
+        "isPassed": true
+      }
+    ],
+    "executedAt": "2023-10-19T13:04:48.316936Z"
+  },
+  {
+    "id": 16,
+    "name": "MVN Repo",
+    "site": "https://mvnrepository.com",
+    "stepsResults": [
+      {
+        "step": {
+          "action": "clickCss",
+          "value": ".t5:nth-child(46)"
+        },
+        "isPassed": false
+      },
+      {
+        "step": {
+          "action": "sleep",
+          "value": "2"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "clickCss",
+          "value": ".im:nth-child(3) .im-title > a:nth-child(2)"
+        },
+        "isPassed": false
+      },
+      {
+        "step": {
+          "action": "sleep",
+          "value": "2"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "clickCss",
+          "value": "tr:nth-child(1) .vbtn"
+        },
+        "isPassed": false
+      }
+    ],
+    "executedAt": "2023-10-19T13:05:00.980032Z"
+  },
+  {
+    "id": 17,
+    "name": "test scenario 1",
+    "site": "https://info.cern.ch",
+    "stepsResults": [
+      {
+        "step": {
+          "action": "clickCss",
+          "value": "body > ul > li:nth-child(1) > a"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "sleep",
+          "value": "5"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "clickXpath",
+          "value": "/html/body/p"
+        },
+        "isPassed": true
+      }
+    ],
+    "executedAt": "2023-10-19T14:50:04.448169Z"
+  },
+  {
+    "id": 18,
+    "name": "Amazon Shopping",
+    "site": "https://www.amazon.com",
+    "stepsResults": [
+      {
+        "step": {
+          "action": "clickXpath",
+          "value": "//a[@id='nav-hamburger-menu']"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "sleep",
+          "value": "2"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "clickCss",
+          "value": ".nav-logo-base"
+        },
+        "isPassed": false
+      }
+    ],
+    "executedAt": "2023-10-19T14:50:10.694302Z"
+  },
+  {
+    "id": 19,
+    "name": "Google Search",
+    "site": "https://www.google.com",
+    "stepsResults": [
+      {
+        "step": {
+          "action": "clickCss",
+          "value": "#hplogo"
+        },
+        "isPassed": false
+      },
+      {
+        "step": {
+          "action": "sleep",
+          "value": "3"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "clickXpath",
+          "value": "//input[@name='q']"
+        },
+        "isPassed": false
+      }
+    ],
+    "executedAt": "2023-10-19T14:50:14.209946Z"
+  },
+  {
+    "id": 20,
+    "name": "Wikipedia Search",
+    "site": "https://www.wikipedia.org",
+    "stepsResults": [
+      {
+        "step": {
+          "action": "clickCss",
+          "value": "#js-link-box-en > strong"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "sleep",
+          "value": "4"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "clickXpath",
+          "value": "//div[2]/span/a"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "sleep",
+          "value": "4"
+        },
+        "isPassed": true
+      }
+    ],
+    "executedAt": "2023-10-19T14:50:21.477073Z"
+  },
+  {
+    "id": 21,
+    "name": "IP check",
+    "site": "https://myip.com.ua/",
+    "stepsResults": [
+      {
+        "step": {
+          "action": "sleep",
+          "value": "10"
+        },
+        "isPassed": true
+      }
+    ],
+    "executedAt": "2023-10-19T14:50:26.169145Z"
+  },
+  {
+    "id": 22,
+    "name": "Baeldung",
+    "site": "https://www.baeldung.com",
+    "stepsResults": [
+      {
+        "step": {
+          "action": "clickCss",
+          "value": ".menu-start-here > .nav--menu_item_anchor"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "sleep",
+          "value": "4"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "clickXpath",
+          "value": "(//a[@id='button-text-color']/span/span)[2]"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "sleep",
+          "value": "4"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "clickCss",
+          "value": ".elementor-icon-list-items:nth-child(2) > .elementor-icon-list-item:nth-child(1) a"
+        },
+        "isPassed": false
+      },
+      {
+        "step": {
+          "action": "sleep",
+          "value": "4"
+        },
+        "isPassed": true
+      }
+    ],
+    "executedAt": "2023-10-19T14:50:38.582518Z"
+  },
+  {
+    "id": 23,
+    "name": "W3",
+    "site": "https://www.w3schools.com",
+    "stepsResults": [
+      {
+        "step": {
+          "action": "clickXpath",
+          "value": "//div[@id='subtopnav']/a[6]"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "sleep",
+          "value": "4"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "clickXpath",
+          "value": "//div[@id='leftmenuinnerinner']/a[2]"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "sleep",
+          "value": "4"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "clickCss",
+          "value": ".w3-right:nth-child(3)"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "sleep",
+          "value": "4"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "clickXpath",
+          "value": "//div[@id='main']/div[2]/a[2]"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "sleep",
+          "value": "4"
+        },
+        "isPassed": true
+      }
+    ],
+    "executedAt": "2023-10-19T14:50:45.225587Z"
+  },
+  {
+    "id": 24,
+    "name": "MVN Repo",
+    "site": "https://mvnrepository.com",
+    "stepsResults": [
+      {
+        "step": {
+          "action": "clickCss",
+          "value": ".t5:nth-child(46)"
+        },
+        "isPassed": false
+      },
+      {
+        "step": {
+          "action": "sleep",
+          "value": "2"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "clickCss",
+          "value": ".im:nth-child(3) .im-title > a:nth-child(2)"
+        },
+        "isPassed": false
+      },
+      {
+        "step": {
+          "action": "sleep",
+          "value": "2"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "clickCss",
+          "value": "tr:nth-child(1) .vbtn"
+        },
+        "isPassed": false
+      }
+    ],
+    "executedAt": "2023-10-19T14:50:59.023669Z"
+  },
+  {
+    "id": 25,
+    "name": "test scenario 1",
+    "site": "https://info.cern.ch",
+    "stepsResults": [
+      {
+        "step": {
+          "action": "clickCss",
+          "value": "body > ul > li:nth-child(1) > a"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "sleep",
+          "value": "5"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "clickXpath",
+          "value": "/html/body/p"
+        },
+        "isPassed": true
+      }
+    ],
+    "executedAt": "2023-10-19T15:04:30.031876Z"
+  },
+  {
+    "id": 26,
+    "name": "Google Search",
+    "site": "https://www.google.com",
+    "stepsResults": [
+      {
+        "step": {
+          "action": "clickCss",
+          "value": "#hplogo"
+        },
+        "isPassed": false
+      },
+      {
+        "step": {
+          "action": "sleep",
+          "value": "3"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "clickXpath",
+          "value": "//input[@name='q']"
+        },
+        "isPassed": false
+      }
+    ],
+    "executedAt": "2023-10-19T15:04:39.451153Z"
+  },
+  {
+    "id": 27,
+    "name": "Amazon Shopping",
+    "site": "https://www.amazon.com",
+    "stepsResults": [
+      {
+        "step": {
+          "action": "clickXpath",
+          "value": "//a[@id='nav-hamburger-menu']"
+        },
+        "isPassed": false
+      },
+      {
+        "step": {
+          "action": "sleep",
+          "value": "2"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "clickCss",
+          "value": ".nav-logo-base"
+        },
+        "isPassed": false
+      }
+    ],
+    "executedAt": "2023-10-19T15:04:44.100325Z"
+  },
+  {
+    "id": 28,
+    "name": "Wikipedia Search",
+    "site": "https://www.wikipedia.org",
+    "stepsResults": [
+      {
+        "step": {
+          "action": "clickCss",
+          "value": "#js-link-box-en > strong"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "sleep",
+          "value": "4"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "clickXpath",
+          "value": "//div[2]/span/a"
+        },
+        "isPassed": true
+      },
+      {
+        "step": {
+          "action": "sleep",
+          "value": "4"
+        },
+        "isPassed": true
+      }
+    ],
+    "executedAt": "2023-10-19T15:04:50.272322Z"
+  }
+]

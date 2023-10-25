@@ -107,4 +107,34 @@
 		</plugins>
 	</build>
 
+    <profiles>
+        <profile>
+            <id>prod</id>
+            <build>
+                <finalName>client-prod</finalName>
+                <filters>
+                    <filter>src/main/resources/application-prod.properties</filter>
+                </filters>
+            </build>
+        </profile>
+        <profile>
+            <id>dev</id>
+            <build>
+                <finalName>client-dev</finalName>
+                <filters>
+                    <filter>src/main/resources/application-dev.properties</filter>
+                </filters>
+            </build>
+        </profile>
+        <profile>
+            <id>test</id>
+            <build>
+                <finalName>client-test</finalName>
+                <filters>
+                    <filter>src/main/resources/application-test.properties</filter>
+                </filters>
+            </build>
+        </profile>
+    </profiles>
+
 </project>
