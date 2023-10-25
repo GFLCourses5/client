@@ -1,7 +1,7 @@
 package com.geeksforless.client.client;
 
-import com.geeksforless.client.configuration.ScenarioResultMocks;
-import com.geeksforless.client.configuration.WireMockConfig;
+import com.geeksforless.client.configuration.client.ScenarioResultMocks;
+import com.geeksforless.client.configuration.client.WireMockConfig;
 import com.geeksforless.client.model.dto.scenario.*;
 import com.github.tomakehurst.wiremock.WireMockServer;
 import org.junit.jupiter.api.Test;
@@ -118,8 +118,10 @@ public class WorkerClientTest {
         ScenarioRequestDTO request = ScenarioRequestDTO.builder()
                 .userId(null)
                 .proxyRequired(false)
-                .scenarioList(Arrays.asList(
-
+                .scenarios(Arrays.asList(
+                    new Scenario(),
+                    new Scenario(),
+                    new Scenario()
                 ))
                 .build();
         return request;
