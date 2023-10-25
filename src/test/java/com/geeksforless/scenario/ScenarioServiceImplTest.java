@@ -9,12 +9,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContext;
-import org.springframework.security.core.context.SecurityContextHolder;
 
 import java.util.Collections;
 import java.util.List;
@@ -29,20 +25,19 @@ class ScenarioServiceImplTest {
     @Mock
     private WorkerClient workerClient;
 
+    @Mock
+    private Authentication authentication;
+
     @InjectMocks
     private ScenarioServiceImpl scenarioService;
 
     @BeforeEach
     void setUp() {
-        SecurityContext securityContext = Mockito.mock(SecurityContext.class);
-        SecurityContextHolder.setContext(securityContext);
         CustomUserDetails userDetails = new CustomUserDetails();
         userDetails.setId(1L);
         userDetails.setEmail("user@example.com");
         userDetails.setPassword("password");
-        Authentication authentication = new UsernamePasswordAuthenticationToken(userDetails, null,
-                userDetails.getAuthorities());
-        lenient().when(securityContext.getAuthentication()).thenReturn(authentication);
+        lenient().when(authentication.getPrincipal()).thenReturn(userDetails);
     }
 
     @Test
@@ -53,7 +48,7 @@ class ScenarioServiceImplTest {
                 .scenarioList(Collections.emptyList())
                 .proxyRequired(false)
                 .build();
-        scenarioService.sendScenario(formData);
+        scenarioService.sendScenario(formData, authentication);
         verify(workerClient).postScenarios(expectedRequest);
         verifyNoMoreInteractions(workerClient);
     }
@@ -63,7 +58,7 @@ class ScenarioServiceImplTest {
         Long userId = 1L;
         List<ScenarioResultDTO> expectedResults = Collections.singletonList(new ScenarioResultDTO());
         when(workerClient.getScenariosByUserId(userId)).thenReturn(expectedResults);
-        List<ScenarioResultDTO> actualResults = scenarioService.getScenarioResults(userId);
+        List<ScenarioResultDTO> actualResults = scenarioService.getScenarioResults(authentication);
         assertEquals(expectedResults, actualResults);
     }
 
@@ -82,7 +77,7 @@ class ScenarioServiceImplTest {
                 "\"steps\":[{\"action\":\"Click\",\"value\":\"Button\"}]}]";
         ScenarioFormDTO formData = new ScenarioFormDTO(validJson, true);
 
-        scenarioService.sendScenario(formData);
+        scenarioService.sendScenario(formData, authentication);
 
         ScenarioRequestDTO expectedRequest = ScenarioRequestDTO.builder()
                 .userId(1L)
@@ -99,7 +94,7 @@ class ScenarioServiceImplTest {
         when(workerClient.getScenariosByUserId(userId)).thenThrow(new RuntimeException("Error retrieving scenarios"));
 
         assertThrows(RuntimeException.class, () -> {
-            scenarioService.getScenarioResults(userId);
+            scenarioService.getScenarioResults(authentication);
         });
     }
 
@@ -112,6 +107,7 @@ class ScenarioServiceImplTest {
             scenarioService.getScenarioById(scenarioId);
         });
     }
+
     @Test
     void testSendScenario_EmptyScenariosList_ShouldPostEmptyList() {
         ScenarioFormDTO formData = new ScenarioFormDTO("[]", false);
@@ -120,7 +116,7 @@ class ScenarioServiceImplTest {
                 .scenarioList(Collections.emptyList())
                 .proxyRequired(false)
                 .build();
-        scenarioService.sendScenario(formData);
+        scenarioService.sendScenario(formData, authentication);
         verify(workerClient).postScenarios(expectedRequest);
         verifyNoMoreInteractions(workerClient);
     }
