@@ -1,6 +1,7 @@
 package com.geeksforless.client.model.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,6 +9,8 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "users")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class User {
     @Id
     @Column(name = "id")

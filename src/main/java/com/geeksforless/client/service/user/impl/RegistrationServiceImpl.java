@@ -28,8 +28,8 @@ public class RegistrationServiceImpl implements RegistrationService {
         user.setEmail(email);
         user.setPassword(passwordEncoder.encode(request.getPassword()));
         user.setName(request.getName());
-        userRepository.save(user);
-        return UserMapper.toUserDto(user);
+        User newUser = userRepository.save(user);
+        return UserMapper.toUserDto(newUser);
     }
 
 }
