@@ -7,12 +7,13 @@
 </head>
 <body>
 <div class="container mt-4">
-  <h1>Step Results</h1>
+  <h1 th:text="${scenarioName}"></h1>
   <table class="table table-bordered table-striped">
     <thead class="thead-dark">
     <tr>
       <th>№</th>
       <th>Step</th>
+      <th>Value</th>
       <th>Passed</th>
     </tr>
     </thead>
@@ -20,6 +21,7 @@
     <tr th:each="stepResult, iterStat : ${stepsResults}">
       <td th:text="${iterStat.count}"></td>
       <td th:text="${stepResult.step.getAction()}"></td>
+      <td th:text="${stepResult.step.getValue()}"></td>
       <td th:style="${stepResult.isPassed ? 'background-color: green; color: white;' : 'background-color: red; color: white;'}">
         <span th:text="${stepResult.isPassed ? 'Passed' : 'Not Passed'}"></span>
       </td>
