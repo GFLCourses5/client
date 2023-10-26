@@ -3,12 +3,14 @@ package com.geeksforless.client.service.scenario.impl;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.geeksforless.client.client.WorkerClient;
-import com.geeksforless.client.model.dto.scenario.*;
+import com.geeksforless.client.model.dto.scenario.Scenario;
+import com.geeksforless.client.model.dto.scenario.ScenarioFormDTO;
+import com.geeksforless.client.model.dto.scenario.ScenarioRequestDTO;
+import com.geeksforless.client.model.dto.scenario.ScenarioResultDTO;
 import com.geeksforless.client.model.entity.CustomUserDetails;
 import com.geeksforless.client.service.scenario.ScenarioService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
