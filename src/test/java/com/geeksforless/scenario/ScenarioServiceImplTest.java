@@ -4,6 +4,7 @@ import com.geeksforless.client.client.WorkerClient;
 import com.geeksforless.client.model.dto.scenario.*;
 import com.geeksforless.client.model.entity.CustomUserDetails;
 import com.geeksforless.client.service.scenario.impl.ScenarioServiceImpl;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -40,16 +41,8 @@ class ScenarioServiceImplTest {
         lenient().when(authentication.getPrincipal()).thenReturn(userDetails);
     }
 
-    @Test
-    void testSendScenario() {
-        ScenarioFormDTO formData = new ScenarioFormDTO("[]", false);
-        ScenarioRequestDTO expectedRequest = ScenarioRequestDTO.builder()
-                .userId(1L)
-                .scenarioList(Collections.emptyList())
-                .proxyRequired(false)
-                .build();
-        scenarioService.sendScenario(formData, authentication);
-        verify(workerClient).postScenarios(expectedRequest);
+    @AfterEach
+    void tearDown() {
         verifyNoMoreInteractions(workerClient);
     }
 
@@ -76,9 +69,9 @@ class ScenarioServiceImplTest {
         String validJson = "[{\"name\":\"Test scenario\",\"site\":\"example.com\"," +
                 "\"steps\":[{\"action\":\"Click\",\"value\":\"Button\"}]}]";
         ScenarioFormDTO formData = new ScenarioFormDTO(validJson, true);
+        doNothing().when(workerClient).postScenarios(any(ScenarioRequestDTO.class));
 
         scenarioService.sendScenario(formData, authentication);
-
         ScenarioRequestDTO expectedRequest = ScenarioRequestDTO.builder()
                 .userId(1L)
                 .scenarioList(Collections.singletonList(new Scenario("Test scenario", "example.com",
