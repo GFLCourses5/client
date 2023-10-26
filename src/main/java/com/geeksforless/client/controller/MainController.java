@@ -22,7 +22,7 @@ public class MainController {
     @PostMapping(value = "/main")
     public String handleFormSubmit(@ModelAttribute ScenarioFormDTO scenarioFormDTO, Authentication authentication) {
         scenarioService.sendScenario(scenarioFormDTO, authentication);
-        return "redirect:/waiting-page";
+        return "redirect:/result-page";
     }
 
     @ModelAttribute

@@ -1,4 +1,4 @@
-package com.geeksforless.client.configuration;
+package com.geeksforless.client.configuration.client;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.geeksforless.client.model.dto.scenario.ScenarioRequestDTO;

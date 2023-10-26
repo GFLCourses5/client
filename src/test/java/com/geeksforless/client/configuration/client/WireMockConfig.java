@@ -1,4 +1,4 @@
-package com.geeksforless.client.configuration;
+package com.geeksforless.client.configuration.client;
 
 import com.github.tomakehurst.wiremock.WireMockServer;
 import org.springframework.beans.factory.annotation.Autowired;
