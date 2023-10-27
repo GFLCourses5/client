@@ -74,7 +74,7 @@ class ScenarioServiceImplTest {
         scenarioService.sendScenario(formData, authentication);
         ScenarioRequestDTO expectedRequest = ScenarioRequestDTO.builder()
                 .userId(1L)
-                .scenarioList(Collections.singletonList(new Scenario("Test scenario", "example.com",
+                .scenarios(Collections.singletonList(new Scenario("Test scenario", "example.com",
                         Collections.singletonList(new Step("Click", "Button")))))
                 .proxyRequired(true)
                 .build();
@@ -106,7 +106,7 @@ class ScenarioServiceImplTest {
         ScenarioFormDTO formData = new ScenarioFormDTO("[]", false);
         ScenarioRequestDTO expectedRequest = ScenarioRequestDTO.builder()
                 .userId(1L)
-                .scenarioList(Collections.emptyList())
+                .scenarios(Collections.emptyList())
                 .proxyRequired(false)
                 .build();
         scenarioService.sendScenario(formData, authentication);
