@@ -1,4 +1,4 @@
-package com.geeksforless.scenario;
+package com.geeksforless.client.service;
 
 import com.geeksforless.client.client.WorkerClient;
 import com.geeksforless.client.model.dto.scenario.*;
