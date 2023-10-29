@@ -15,7 +15,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 @RequiredArgsConstructor
 public class UserController {
-    private final RegistrationService userService;
+
+    private final RegistrationService registrationServiceService;
 
     @GetMapping("/login")
     public String login() {
@@ -40,7 +41,7 @@ public class UserController {
 
     @PostMapping("/registration")
     public String createUser(@ModelAttribute("user") SaveUserRequest request, Model model) {
-        if (userService.createUser(request) == null) {
+        if (registrationServiceService.createUser(request) == null) {
             model.addAttribute("errorMessage", "User with email: " + request.getEmail() + " already exists");
             return "registration";
         }
