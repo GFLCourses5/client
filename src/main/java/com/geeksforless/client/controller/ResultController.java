@@ -33,6 +33,7 @@ public class ResultController {
         ScenarioResultDTO scenarioResultDTO = scenarioService.getScenarioById(scenarioId);
         List<StepResultDTO> stepsResults = scenarioResultDTO.getStepsResults();
         model.addAttribute("stepsResults", stepsResults);
+        model.addAttribute("scenarioName", scenarioResultDTO.getName());
         return "stepResult-page";
     }
 }

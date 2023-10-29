@@ -1,18 +1,21 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
   <meta charset="UTF-8">
   <title>Step Results</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
+<div th:include="commons/navbar :: menu"></div>
 <div class="container mt-4">
-  <h1>Step Results</h1>
+  <h1 th:text="${scenarioName}"></h1>
   <table class="table table-bordered table-striped">
     <thead class="thead-dark">
     <tr>
       <th>№</th>
       <th>Step</th>
+      <th>Value</th>
       <th>Passed</th>
     </tr>
     </thead>
@@ -20,6 +23,7 @@
     <tr th:each="stepResult, iterStat : ${stepsResults}">
       <td th:text="${iterStat.count}"></td>
       <td th:text="${stepResult.step.getAction()}"></td>
+      <td th:text="${stepResult.step.getValue()}"></td>
       <td th:style="${stepResult.isPassed ? 'background-color: green; color: white;' : 'background-color: red; color: white;'}">
         <span th:text="${stepResult.isPassed ? 'Passed' : 'Not Passed'}"></span>
       </td>
