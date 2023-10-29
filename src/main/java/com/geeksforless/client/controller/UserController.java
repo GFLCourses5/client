@@ -2,7 +2,7 @@ package com.geeksforless.client.controller;
 
 import com.geeksforless.client.model.entity.User;
 import com.geeksforless.client.model.request.SaveUserRequest;
-import com.geeksforless.client.service.user.impl.RegistrationServiceImpl;
+import com.geeksforless.client.service.user.RegistrationService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 @RequiredArgsConstructor
 public class UserController {
-    private final RegistrationServiceImpl userService;
+    private final RegistrationService userService;
 
     @GetMapping("/login")
     public String login() {
