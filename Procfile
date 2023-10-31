@@ -1,1 +1,1 @@
-web: sh start_script.sh && java -jar target/client-prod-1.0.jar
+web: sh start_script.sh && java -jar target/client-prod.jar
