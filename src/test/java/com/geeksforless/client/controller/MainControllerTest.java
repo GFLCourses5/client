@@ -41,6 +41,6 @@ public class MainControllerTest {
         mockMvc.perform(MockMvcRequestBuilders.post("/main")
                         .flashAttr("scenarioFormDTO", scenarioFormDTO))
                 .andExpect(MockMvcResultMatchers.status().is3xxRedirection())
-                .andExpect(MockMvcResultMatchers.redirectedUrl("/result-page"));
+                .andExpect(MockMvcResultMatchers.redirectedUrl("/scenarios"));
     }
 }
