@@ -12,7 +12,8 @@ RUN mvn clean package spring-boot:repackage -Pprod
 
 FROM openjdk:17-jdk-slim
 
-ENV PROJECT_NAME="client-prod"
+ENV PROJECT_NAME="client-prod" \
+    SPRING_PROFILES_ACTIVE="prod"
 
 COPY --from=build /app/target/${PROJECT_NAME}.jar /app/${PROJECT_NAME}.jar
 
